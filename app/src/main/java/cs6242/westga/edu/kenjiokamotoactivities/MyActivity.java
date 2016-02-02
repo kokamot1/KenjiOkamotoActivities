@@ -12,7 +12,8 @@ import android.content.Intent;
 import android.widget.EditText;
 
 public class MyActivity extends AppCompatActivity {
-    public final static String EXTRA_MESSAGE = "cs6242.westga.edu.kenjiokamotoactivities.MESSAGE";
+    public final static String MESSAGE1 = "cs6242.westga.edu.kenjiokamotoactivities.MESSAGE1";
+    public final static String MESSAGE2 = "cs6242.westga.edu.kenjiokamotoactivities.MESSAGE2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class MyActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         EditText editText = (EditText) findViewById(R.id.edit_message);
         String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
+        intent.putExtra(MESSAGE1, message);
         startActivity(intent);
     }
 

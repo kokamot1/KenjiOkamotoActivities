@@ -13,4 +13,36 @@
     tools:showIn="@layout/activity_display_message"
     android:id="@+id/content">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/receivedMessage"
+        android:layout_marginTop="5dp"
+        android:textSize="@dimen/abc_text_size_medium_material"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nextMessage"
+        android:hint="Enter Second Mesage"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/receivedMessage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/nextButton"
+        android:layout_toStartOf="@+id/nextButton" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:id="@+id/nextButton"
+        android:onClick="onNextButtonPress"
+        android:layout_alignBaseline="@+id/nextMessage"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>

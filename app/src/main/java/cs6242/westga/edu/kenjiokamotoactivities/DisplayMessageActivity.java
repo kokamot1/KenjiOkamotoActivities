@@ -11,10 +11,12 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.util.Log;
 
 public class DisplayMessageActivity extends AppCompatActivity {
+    public final static String MESSAGE2 = "cs6242.westga.edu.kenjiokamotoactivities.MESSAGE2";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +36,21 @@ public class DisplayMessageActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Intent intent = getIntent();
-        String message = intent.getStringExtra(MyActivity.EXTRA_MESSAGE);
-        TextView textView = new TextView(this);
-        textView.setTextSize(40);
+        String message = intent.getStringExtra(MyActivity.MESSAGE1);
+        TextView textView = (TextView) findViewById(R.id.receivedMessage);
         textView.setText(message);
 
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.content);
-        layout.addView(textView);
+    }
+
+    public void onNextButtonPress(View view) {
+        String message1 = getIntent().getStringExtra(MyActivity.MESSAGE1);
+        EditText editText = (EditText) findViewById(R.id.nextMessage);
+        String message2 = editText.getText().toString();
+
+        Intent intent = new Intent(this, Display2ndMessageActivity.class);
+        intent.putExtra(MyActivity.MESSAGE1, message1);
+        intent.putExtra(MyActivity.MESSAGE2, message2);
+        startActivity(intent);
     }
 
     @Override
